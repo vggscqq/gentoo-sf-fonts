@@ -17,13 +17,13 @@ SIZE=$(stat -c%s "${TARBALL}")
 BLAKE2B=$(openssl dgst -blake2b512 "${TARBALL}" | awk '{print $2}')
 BLAKE2S=$(openssl dgst -blake2s256 "${TARBALL}" | awk '{print $2}')
 MD5=$(md5sum "${TARBALL}" | awk '{print $1}')
-RMD160=$(openssl dgst -ripemd160 "${TARBALL}" | awk '{print $2}')
+RMD160=$(openssl dgst -provider legacy -provider default -ripemd160 "${TARBALL}" | awk '{print $2}')
 SHA1=$(sha1sum "${TARBALL}" | awk '{print $1}')
 SHA256=$(sha256sum "${TARBALL}" | awk '{print $1}')
 SHA3_256=$(openssl dgst -sha3-256 "${TARBALL}" | awk '{print $2}')
 SHA3_512=$(openssl dgst -sha3-512 "${TARBALL}" | awk '{print $2}')
 SHA512=$(sha512sum "${TARBALL}" | awk '{print $1}')
-WHIRLPOOL=$(openssl dgst -whirlpool "${TARBALL}" | awk '{print $2}')
+WHIRLPOOL=$(openssl dgst -provider legacy -provider default -whirlpool "${TARBALL}" | awk '{print $2}')
 
 MANIFEST="media-fonts/sf-pro/Manifest"
 cat > "${MANIFEST}" <<EOF
