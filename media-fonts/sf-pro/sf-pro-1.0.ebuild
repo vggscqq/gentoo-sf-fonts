@@ -13,6 +13,8 @@ LICENSE="all-rights-reserved"
 SLOT="0"
 KEYWORDS="amd64 arm64 x86"
 
+S="${WORKDIR}/sf-pro-fonts-${PV}"
+
 RESTRICT="mirror"
 
 FONT_SUFFIX="otf ttf"
